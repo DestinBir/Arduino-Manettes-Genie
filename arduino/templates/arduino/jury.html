@@ -1,0 +1,68 @@
+{% extends 'arduino/base.html' %}
+
+{% block title %}Jury {% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <section class="section">
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        <div class="content is-medium">
+                          <h1 class="titre">Jury</h1>
+                            
+                          <form class="form" method="POST">
+                              {% csrf_token %} 
+                                <div class="field">
+                                    <label class="label">NOM: </label>
+                                    <div class="control">
+                                        <div class="select">
+                                            <select class="is-hovered" name="equipe">
+                                              <option>{{ equipe.teamBlue }}</option>
+                                              <option>{{ equipe.teamRed }}</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="field">
+                                    <p class="control">
+                                        {% for p in pt %}
+                                        <a href="{% url 'points' equipe.code p %}">
+                                            <button class="button is-warning">
+                                              {{ p }}
+                                            </button>
+                                        </a>
+                                        {% endfor %}
+                                    </p>
+                                </div>
+                          </form>
+                          <br>
+                          <a href="{% url 'blue' equipe.code %}">
+                          <div class="field">
+                            <p class="control">
+                                <button class="button is-success">
+                                    {{ equipe.teamBlue }}
+                                </button>
+                            </p>
+                            <br>
+                            </a>
+                            <a href="{% url 'red' equipe.code %}">
+                            <p class="control">
+                                <button class="button is-danger">
+                                    {{ equipe.teamRed }}
+                                </button>
+                            </p>
+                            </a>
+                        </div>
+                        </div>
+                        <div class="is-divider"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

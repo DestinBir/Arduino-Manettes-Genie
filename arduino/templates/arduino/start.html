@@ -1,0 +1,44 @@
+{% extends 'arduino/base.html' %}
+
+{% block title %}Start {% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <section class="section">
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        <div class="content is-medium">
+                          <h1 class="titre">Commencer</h1>
+                            
+                          <form class="form" method="POST">
+                              {% csrf_token %} 
+                                <div class="field">
+                                    <label class="label">CODE: </label>
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input" type="text" placeholder="0000" name="code">
+                                        <span class="icon is-small is-left">
+                                            <i class="fa fa-home"></i>
+                                        </span>
+                                    </div>
+                                    </div>
+                                
+                                <div class="field">
+                                    <p class="control">
+                                        <button class="button is-success" type="submit">
+                                          Commencer
+                                        </button>
+                                    </p>
+                                </div>
+                          </form>
+                        </div>
+                        <div class="is-divider"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

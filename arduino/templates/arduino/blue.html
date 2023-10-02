@@ -1,0 +1,97 @@
+{% extends 'arduino/base.html' %}
+
+{% block title %} Compteur {% endblock %}
+
+{% block content %}
+<style>
+    html{
+        background-color: rgb(255, 251, 0) !important;
+    }
+
+    .marq{
+        display: flex !important;
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+
+    .card1{
+        height: 15rem;
+        justify-content: center;
+        align-content: center;
+        padding: 0rem;
+        width: 30%;
+        margin: 4rem;
+        background-color: rgb(252, 235, 209);
+    }
+
+    .v{
+        font-size: 10rem;
+        margin-top: 5rem;
+    }
+
+    .point{
+        display: flex;
+        font-size: 10em;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .card1 p{
+        font-size: 2rem;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .bg_red{
+        background-color: rgb(211, 89, 89);
+    }
+
+    .bg_blue{
+        background-color: rgb(84, 84, 243);
+    }
+
+</style>
+
+
+<section class="hero">
+    <div class="hero-body" style="padding: 0% !important;">
+        <div class="container">
+            <section class="section">
+                <h1 class="title" style="display: flex; justify-content: center !important;">MARQUOIR</h1>
+                <div class="marq">
+                    <div class="box card1 bg_blue">
+                        <div class="point">
+                            {{ equipe.scoreB }}
+                        </div>
+                        <p>{{ equipe.teamBlue }}</p>
+                    </div>
+                    
+                    <div class="box card1">
+                        <div class="point">
+                            {{ equipe.scoreR }}
+                        </div>
+                        <p>{{ equipe.teamRed }}</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+<footer class="footer" style="background-color: transparent; padding: 0% !important;">
+    <div class="content has-text-centered">
+      <p>Copyright (c) 2023-2024</p>
+      <p><strong>Code Growth Alive</strong> par <a href="https://destinbir.github.io/">Destin Biringanine</a>.</p>
+    </div>
+</footer> 
+
+<script>
+    // Actualiser la page actuelle après 1 seconde
+  setTimeout(function() {
+    window.location.reload();
+  }, 5000); // 1000 millisecondes = 1 seconde
+  
+  </script>
+
+{% endblock %}
+
